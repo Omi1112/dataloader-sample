@@ -1,0 +1,19 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type User @key(fields: "id") @extends {
+  id: ID! @external
+  todos: [Todo]
+}
+
+type Todo @key(fields: "id") {
+  id: ID!
+  userId: String!
+  user: User
+  body: String!
+}
+
+type Query {
+  todos: [Todo]
+}
